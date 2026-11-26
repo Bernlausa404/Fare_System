@@ -33,4 +33,23 @@ def describe(self):
     pass
   
 # ===== Jeepney class (Developer A) ====
+
 # ===== Jeepney class (Developer B) ====
+class Tricycle(Vehicle):
+    def __init__(self, plate_number, capacity, barangay):
+        super().__init__(plate_number, capacity)
+        self.__barangay = barangay
+
+    def get_barangay(self):
+        return self.__barangay
+
+    def set_barangay(self, barangay):
+        self.__barangay = barangay
+
+    def compute_fare(self, distance_km):
+        base_fare = 10
+        fare_per_km = 2
+        return base_fare + (fare_per_km * distance_km)
+
+    def describe(self):
+        return f"Tricycle {self.get_plate_number()} with capacity {self.get_capacity()} is assigned to Barangay {self.__barangay}."
